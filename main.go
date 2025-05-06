@@ -58,6 +58,7 @@ func main() {
 	rootCmd.PersistentFlags().String("client-id", "", "Microsoft Client ID")
 	rootCmd.PersistentFlags().String("client-secret", "", "Microsoft Client Secret")
 	rootCmd.PersistentFlags().String("transport", "sse", "MCP transport type (stdio or sse)")
+	rootCmd.PersistentFlags().String("service-name", "localhost", "Microsoft Service Name")
 
 	viper.SetConfigName("config") // name of the file (without extension)
 	viper.SetConfigType("yaml")   // or viper.SetConfigType("json") if it's json

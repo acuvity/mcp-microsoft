@@ -3,10 +3,10 @@ package mcp
 import (
 	"fmt"
 
-	"github.com/mark3labs/mcp-go/server"
 	"github.com/acuvity/mcp-microsoft/baggage"
 	"github.com/acuvity/mcp-microsoft/client"
 	"github.com/acuvity/mcp-microsoft/collection"
+	"github.com/mark3labs/mcp-go/server"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -39,7 +39,7 @@ func Run(cmd *cobra.Command, args []string) error {
 			return fmt.Errorf("server error: %v", err)
 		}
 	case "sse":
-		server := server.NewSSEServer(s, server.WithBaseURL("http://localhost:8000"), server.WithSSEContextFunc(baggage.WithInfomationFromRequest(cl)))
+		server := server.NewSSEServer(s, server.WithBaseURL(fmt.Sprintf("http://%s:8000", viper.GetString("service-name"))), server.WithSSEContextFunc(baggage.WithInfomationFromRequest(cl)))
 		if server == nil {
 			return fmt.Errorf("server error: %v", err)
 		}

@@ -5,13 +5,13 @@ import (
 	"encoding/json"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/acuvity/mcp-microsoft/baggage"
+	"github.com/acuvity/mcp-microsoft/collection"
 	"github.com/mark3labs/mcp-go/mcp"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	msgraphcore "github.com/microsoftgraph/msgraph-sdk-go-core"
 	"github.com/microsoftgraph/msgraph-sdk-go/models"
 	"github.com/microsoftgraph/msgraph-sdk-go/users"
-	"github.com/acuvity/mcp-microsoft/baggage"
-	"github.com/acuvity/mcp-microsoft/collection"
 )
 
 func init() {
@@ -22,7 +22,7 @@ func init() {
 			Tool: mcp.NewTool("users",
 				mcp.WithDescription("Interact with Microsoft Graph API for user operations"),
 				mcp.WithString("name",
-					mcp.Description("The name of the user"),
+					mcp.Description("The name of the user. If not provided, all users will be returned."),
 				),
 			),
 			Processor: func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
