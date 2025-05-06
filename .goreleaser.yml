@@ -1,0 +1,27 @@
+version: 2
+snapshot:
+  version_template: "v{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^examples:"
+builds:
+  - id: mcp-microsoft
+    binary: mcp-microsoft
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+
+archives:
+  - id: mcp-microsoft
+    formats: ["binary"]
+    builds:
+      - mcp-microsoft
