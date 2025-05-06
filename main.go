@@ -18,7 +18,7 @@ import (
 
 func main() {
 
-	name := "mcp"
+	name := "mcp-microsoft"
 	description := "Microsoft MCP Command Line Tool"
 	version := "1.0.0"
 
@@ -64,10 +64,7 @@ func main() {
 	viper.AddConfigPath(".")      // optionally look for config in the working directory
 
 	// Read in the config
-	if err := viper.ReadInConfig(); err != nil {
-		fmt.Printf("error reading config file: %v\n", err)
-		return
-	}
+	_ = viper.ReadInConfig()
 
 	rootCmd.RunE = mcp.Run
 	if err := rootCmd.Execute(); err != nil {
