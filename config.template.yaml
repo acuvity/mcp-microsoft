@@ -1,0 +1,5 @@
+transport: sse
+
+tenant-id: <azure-tenant-id>
+client-id: <azure-cleient-id>
+client-secret: <azure-client-secret>
