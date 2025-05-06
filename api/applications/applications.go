@@ -7,13 +7,13 @@ import (
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/acuvity/mcp-microsoft/baggage"
+	"github.com/acuvity/mcp-microsoft/collection"
 	"github.com/mark3labs/mcp-go/mcp"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	msgraphcore "github.com/microsoftgraph/msgraph-sdk-go-core"
 	"github.com/microsoftgraph/msgraph-sdk-go/applications"
 	"github.com/microsoftgraph/msgraph-sdk-go/models"
-	"github.com/acuvity/mcp-microsoft/baggage"
-	"github.com/acuvity/mcp-microsoft/collection"
 )
 
 func init() {
@@ -24,7 +24,7 @@ func init() {
 			Tool: mcp.NewTool("applications",
 				mcp.WithDescription("Interact with Microsoft Graph API for application operations"),
 				mcp.WithString("name",
-					mcp.Description("The name of the application"),
+					mcp.Description("The name of the application. If not provided, all applications will be returned."),
 				),
 			),
 			Processor: func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {

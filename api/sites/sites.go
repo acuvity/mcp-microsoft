@@ -9,13 +9,13 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/acuvity/mcp-microsoft/baggage"
+	"github.com/acuvity/mcp-microsoft/collection"
 	"github.com/mark3labs/mcp-go/mcp"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	msgraphcore "github.com/microsoftgraph/msgraph-sdk-go-core"
 	"github.com/microsoftgraph/msgraph-sdk-go/models"
 	"github.com/microsoftgraph/msgraph-sdk-go/sites"
-	"github.com/acuvity/mcp-microsoft/baggage"
-	"github.com/acuvity/mcp-microsoft/collection"
 )
 
 func init() {
@@ -26,7 +26,7 @@ func init() {
 			Tool: mcp.NewTool("sites",
 				mcp.WithDescription("Interact with Microsoft Graph API for site, subsites and pages operations"),
 				mcp.WithString("name",
-					mcp.Description("The name of the site"),
+					mcp.Description("The name of the site. If not provided, all sites will be returned."),
 				),
 			),
 			Processor: func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {

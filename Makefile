@@ -1,6 +1,10 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL := /bin/bash -o pipefail
 
+CONTAINER_ENGINE ?= docker
+CONTAINER_TAG ?= "latest"
+OCI_REGISTRY ?= "acuvity"
+
 export GO111MODULE = on
 
 default: lint test build vuln sec
@@ -31,7 +35,10 @@ vuln:
 	govulncheck ./...
 
 build:
-	go build .
+	env GOOS=linux GOARCH=amd64 go build .
 
 remod:
 	go mod tidy
+
+mcp-server: build
+	@$(CONTAINER_ENGINE) buildx build --attest type=sbom --attest type=provenance --platform linux/arm64/v8,linux/amd64 --tag $(OCI_REGISTRY)/mcp-microsoft:$(CONTAINER_TAG) .

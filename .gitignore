@@ -1,3 +1,5 @@
 config.yaml
 mcp-*
 .vscode
+.env
+cmd.sh

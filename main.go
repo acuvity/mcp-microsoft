@@ -18,7 +18,7 @@ import (
 
 func main() {
 
-	name := "mcp"
+	name := "mcp-microsoft"
 	description := "Microsoft MCP Command Line Tool"
 	version := "1.0.0"
 
@@ -58,16 +58,14 @@ func main() {
 	rootCmd.PersistentFlags().String("client-id", "", "Microsoft Client ID")
 	rootCmd.PersistentFlags().String("client-secret", "", "Microsoft Client Secret")
 	rootCmd.PersistentFlags().String("transport", "sse", "MCP transport type (stdio or sse)")
+	rootCmd.PersistentFlags().String("service-name", "localhost", "Microsoft Service Name")
 
 	viper.SetConfigName("config") // name of the file (without extension)
 	viper.SetConfigType("yaml")   // or viper.SetConfigType("json") if it's json
 	viper.AddConfigPath(".")      // optionally look for config in the working directory
 
 	// Read in the config
-	if err := viper.ReadInConfig(); err != nil {
-		fmt.Printf("error reading config file: %v\n", err)
-		return
-	}
+	_ = viper.ReadInConfig()
 
 	rootCmd.RunE = mcp.Run
 	if err := rootCmd.Execute(); err != nil {
