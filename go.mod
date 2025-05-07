@@ -1,12 +1,11 @@
-module github.com/acuvity/mcp-microsoft
+module github.com/acuvity/mcp-server-microsoft-graph
 
 go 1.23.5
 
-replace github.com/acuvity/mcp-microsoft => ./
-
 require (
-	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.8.2
-	github.com/mark3labs/mcp-go v0.22.0
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.18.0
+	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.9.0
+	github.com/mark3labs/mcp-go v0.26.0
 	github.com/microsoftgraph/msgraph-sdk-go v1.69.0
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/spf13/cobra v1.9.1
@@ -14,7 +13,6 @@ require (
 )
 
 require (
-	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.18.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.11.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v1.4.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

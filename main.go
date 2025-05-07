@@ -9,16 +9,16 @@ import (
 	"github.com/spf13/viper"
 
 	// Import all the tools implemented here.
-	_ "github.com/acuvity/mcp-microsoft/api/applications"
-	_ "github.com/acuvity/mcp-microsoft/api/sites"
-	_ "github.com/acuvity/mcp-microsoft/api/users"
-	"github.com/acuvity/mcp-microsoft/cmd/cli"
-	"github.com/acuvity/mcp-microsoft/mcp"
+	_ "github.com/acuvity/mcp-server-microsoft-graph/api/applications"
+	_ "github.com/acuvity/mcp-server-microsoft-graph/api/sites"
+	_ "github.com/acuvity/mcp-server-microsoft-graph/api/users"
+	"github.com/acuvity/mcp-server-microsoft-graph/cmd/cli"
+	"github.com/acuvity/mcp-server-microsoft-graph/mcp"
 )
 
 func main() {
 
-	name := "mcp-microsoft"
+	name := "mcp-server-microsoft-graph"
 	description := "Microsoft MCP Command Line Tool"
 	version := "1.0.0"
 

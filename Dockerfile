@@ -1,7 +1,7 @@
 FROM alpine:3.21
 
-COPY mcp-microsoft /mcp-microsoft
+COPY mcp-server-microsoft-graph /mcp-server-microsoft-graph
 
 EXPOSE 8000
 
-ENTRYPOINT [ "/mcp-microsoft" ]
+ENTRYPOINT [ "/mcp-server-microsoft-graph" ]

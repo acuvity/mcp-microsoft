@@ -3,9 +3,9 @@ package mcp
 import (
 	"fmt"
 
-	"github.com/acuvity/mcp-microsoft/baggage"
-	"github.com/acuvity/mcp-microsoft/client"
-	"github.com/acuvity/mcp-microsoft/collection"
+	"github.com/acuvity/mcp-server-microsoft-graph/baggage"
+	"github.com/acuvity/mcp-server-microsoft-graph/client"
+	"github.com/acuvity/mcp-server-microsoft-graph/collection"
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

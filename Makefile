@@ -41,4 +41,7 @@ remod:
 	go mod tidy
 
 mcp-server: build
-	@$(CONTAINER_ENGINE) buildx build --attest type=sbom --attest type=provenance --platform linux/arm64/v8,linux/amd64 --tag $(OCI_REGISTRY)/mcp-microsoft:$(CONTAINER_TAG) .
+	@$(CONTAINER_ENGINE) buildx build --attest type=sbom --attest type=provenance --platform linux/arm64/v8,linux/amd64 --tag $(OCI_REGISTRY)/mcp-server-microsoft-graph:$(CONTAINER_TAG) .
+
+mcp-server-push: build
+	@$(CONTAINER_ENGINE) buildx build --attest type=sbom --attest type=provenance --push --platform linux/arm64/v8,linux/amd64 --tag $(OCI_REGISTRY)/mcp-server-microsoft-graph:$(CONTAINER_TAG) .

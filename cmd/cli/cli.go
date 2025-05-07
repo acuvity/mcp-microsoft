@@ -3,8 +3,8 @@ package cli
 import (
 	"fmt"
 
-	"github.com/acuvity/mcp-microsoft/api/sites"
-	"github.com/acuvity/mcp-microsoft/client"
+	"github.com/acuvity/mcp-server-microsoft-graph/api/sites"
+	"github.com/acuvity/mcp-server-microsoft-graph/client"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
-	"github.com/acuvity/mcp-microsoft/baggage"
-	"github.com/acuvity/mcp-microsoft/collection"
+	"github.com/acuvity/mcp-server-microsoft-graph/baggage"
+	"github.com/acuvity/mcp-server-microsoft-graph/collection"
 	"github.com/mark3labs/mcp-go/mcp"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	msgraphcore "github.com/microsoftgraph/msgraph-sdk-go-core"

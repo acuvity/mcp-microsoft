@@ -1,5 +1,5 @@
 version: 2
-project_name: mcp-microsoft
+project_name: mcp-server-microsoft-graph
 
 snapshot:
   version_template: "v{{ .Tag }}-next"
@@ -12,8 +12,8 @@ changelog:
       - "^test:"
       - "^examples:"
 builds:
-  - id: mcp-microsoft
-    binary: mcp-microsoft
+  - id: mcp-server-microsoft-graph
+    binary: mcp-server-microsoft-graph
     goos:
       - linux
       - darwin
