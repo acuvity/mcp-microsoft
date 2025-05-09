@@ -31,11 +31,17 @@ func main() {
 	var rootCmd = &cobra.Command{
 		Use:   name,
 		Short: description,
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			return viper.BindPFlags(cmd.Flags())
+		},
 	}
 
 	var versionCmd = &cobra.Command{
 		Use:   "version",
 		Short: "Prints the version and exit.",
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			return viper.BindPFlags(cmd.Flags())
+		},
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println(version)
 		},
@@ -44,6 +50,9 @@ func main() {
 	var cliCommand = &cobra.Command{
 		Use:   "cli",
 		Short: "Run CLI.",
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			return viper.BindPFlags(cmd.Flags())
+		},
 		Run: func(cmd *cobra.Command, args []string) {
 			cli.Run(cmd, args)
 		},
